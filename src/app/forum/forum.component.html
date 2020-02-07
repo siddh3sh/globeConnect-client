@@ -1,0 +1,224 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+
+<!--Modal open-->
+<!-- <div id="mod" class="modal hidden">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <table class="table is-bordered">
+            
+            <app-add-profile-pic></app-add-profile-pic>
+            
+        </table>
+      
+    </div>
+    <button (click)="removeModal()" class="modal-close is-large" aria-label="close"></button>
+</div> -->
+<!--Modal close-->
+
+<div *ngIf="pageBody">
+    <div class="columns">
+        <div class="column is-half is-offset-3">
+            <!--FORUM DETAILS-->
+            <section class="hero is-info is-bold">
+                <div class="hero-body">
+                    
+                        <nav class="level">
+                            <a>
+                                <div class="container is-vcentered has-image-">
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <figure class="image is-128x128 ">
+                                                
+                                                <img class="is-rounded" src="">
+                                        </figure>
+                                        
+                                </div>
+                            </a> 
+                            
+                            <div class="container has-text-left"> 
+                            
+                                    <h1 class="title has-text-left">
+                                            {{pageBody.forum.name}} 
+                                    </h1>
+                                    <h2 class="subtitle has-text-left">
+                                            {{pageBody.forum.description}}
+                                    </h2>
+                                
+                            </div> 
+                            <!-- <div class="container has-text-justified"> 
+                                
+                                    <div class="tags are-medium has-addons">
+                                            <span class="tag">Followers</span>
+                                            <span class="tag is-primary">4k people</span>
+                                    </div>
+                                                    
+                            </div> -->
+
+
+                        </nav>
+                    
+                </div> 
+            </section>
+            <hr>
+        </div>
+    </div>
+    <div class="columns">
+
+        <!--SIDE PANEL-->
+        <div class="column is-1"></div>
+        <div class="column is-2 is-left">
+            <aside class="menu">
+                <p class="menu-label">
+                Activity
+                </p>
+                <ul class="menu-list">
+                <li><a>Posts: {{pageBody.forumPosts.length}}</a></li>
+                <li><a>Forum Followers: {{pageBody.forumUsers.length}}</a></li>
+                </ul>
+                <!-- <p class="menu-label">
+                Interests
+                </p>
+                <ul *ngFor="let f of user.forums" class="menu-list">
+                    <li><a>{{f.name}}</a></li>
+                    
+                </ul> -->
+                <p class="menu-label">
+                -------------------------
+                </p>
+                
+                <ul class="menu-list">
+                <li><a>Account Settings</a></li>
+                <li><a>About Us</a></li>
+                <li><a>Privacy Policy</a></li>
+                </ul>
+            </aside>
+        </div>
+
+
+        <div class="column is-half">
+            <!--FORUM POSTS-->
+            <section>
+                <div *ngFor="let p of pageBody.forumPosts;let i = index">
+                    <br><br>
+                    <!-- <a routerLink="/d/{{p._id}}" >
+                        <div class="box">
+                            <div class="media-content">
+                                
+                                    <div class="content">
+                                        <div class="columns">
+                                            <div class="column is-2">
+                                                <figure class="media-left">
+                                                    <p class="image is-32x32">
+                                                        <img class="is-rounded" src="http://localhost:9669/{{p.user.profilePic}}">
+                                                    </p>
+                                                </figure>
+                                            </div>
+                                            
+                                                
+                                            <div class="column is-6"><strong>{{p.user.username}}</strong></div> <div class="column is-12"><small>{{p.creation_date}}</small></div>
+                                            <br>
+                                        </div>
+                                        <div>
+                                            <p class="title">{{p.title}}</p>
+                                        </div>
+                                        <div class="column is-11"><p>{{p.content}}
+                                        </p></div>
+                                    </div>
+                                    <nav class="level is-mobile">
+                                        <div class="level-left">
+                
+                                            <a class="level-item">
+                                            <span class="icon is-small"><i></i></span>
+                                            </a>
+                                            <a class="level-item">
+                                                <span class="icon is-small"><i class="fas fa-comment"></i> </span>
+                                            </a>
+                                        </div>
+                                    </nav>
+                            </div> 
+                        </div>
+                    </a> -->
+                    
+                    <div style="border-style: outset;" class="has-background-white">
+                        <article class="media notification is-info">
+                            <figure class="media-left">
+                                <p class="image is-32x32">
+                                    <img class="is-rounded" src="http://localhost:9669/{{p.user.profilePic}}">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                
+                                <div class="content">
+                                    <p>
+                                        <strong>{{p.user.username}}</strong>
+                                          <br>      
+                                        <small>{{p.creation_date}}</small>      
+                                    </p>     
+                                           
+                                </div>            
+                               
+                            </div>
+                        </article>
+                        <div class="section" style="padding-top: 0; padding-bottom: 20px;">
+                            
+                                <h3 class="title is-size-5">{{p.title}}</h3>
+    
+                                <h4 class="subtitle is-size-7">{{p.content}}</h4>
+                            
+                        </div>
+                        
+                        
+    
+                        <div class="columns">
+                            
+                            <nav class="level is-mobile">
+                                <div class="level-left">
+                                    <div class="column is-2">
+                                        
+                                        <button (click)="incLikes(i)" class="button">
+                                        <span class="icon is-medium"><i class="fas fa-arrow-up" ></i></span>
+                                        </button>  
+                                    </div>
+                                    <div class="column is-6 is-offset-2">
+                                    <p> {{p.likes}} Upvotes </p>
+                                    </div>
+                                    <div class="column is-2 is-offset-2">
+                                        <button routerLink="/d/{{p._id}}" class="button">
+                                            <span class="icon is-small"><i class="fas fa-comment"></i> </span>
+                                        </button>
+                                    </div>
+                                    
+                                </div>
+                            </nav>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!--Forum Followers-->
+        <div id="desktop" class="column is-3 is-offset-1">
+            <p><strong>Followers</strong></p>
+            <div *ngFor="let u of pageBody.forumUsers">
+                
+                    <figure class="has-image-">
+                        <div class="tooltip">
+                        <p class="image is-64x64">
+                            
+                                <img class="is-rounded" src="http://localhost:9669/{{u.profilePic}}">
+                                
+                            
+                        </p> 
+                        <span class="tooltiptext"><strong>{{u.username}}</strong></span> 
+                    </div>  
+                    </figure>
+
+                    
+                
+                
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div> 
+        </div>
+        
+    </div>
+</div>

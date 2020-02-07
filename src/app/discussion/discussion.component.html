@@ -1,0 +1,202 @@
+
+<!-- <app-nav-bar></app-nav-bar> -->
+<hr>
+<div class="columns">
+    <div class="column is-one-quarter">
+        <nav class="panel">
+            <p class="panel-heading has-background-white">
+              Forums
+            </p>
+            
+            <a class="panel-block">
+              <span class="panel-icon has-background-white">
+                <i class="fas fa-book" aria-hidden="true"></i>
+              </span>
+              SPORTS
+            </a>
+            <a class="panel-block">
+              <span class="panel-icon">
+                <i class="fas fa-book" aria-hidden="true"></i>
+              </span>
+              PHILOSOPHY
+            </a>
+            <a class="panel-block">
+              <span class="panel-icon">
+                <i class="fas fa-book" aria-hidden="true"></i>
+              </span>
+              PROGRAMMING
+            </a>
+            <a class="panel-block">
+                <span class="panel-icon">
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                GAMING  
+            </a>
+            <a class="panel-block">
+                <span class="panel-icon">
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                POLITICS
+            </a>
+          </nav>
+    </div>
+    <div class="column is-half">
+        <section *ngIf="thread">
+            
+            <!-- <div class="container">
+                <article class="media">
+                        <figure class="media-left">
+                        <p class="image is-64x64">
+                            <img src="https://bulma.io/images/placeholders/128x128.png">
+                        </p>
+                        </figure>
+                        <div class="media-content">
+                        <div class="field">
+                            <p class="control">
+                            <textarea class="textarea" placeholder="Start A Discussion"></textarea>
+                            </p>
+                        </div>
+                        <nav class="level">
+                            <div class="level-left">
+                            <div class="level-item">
+                                <a class="button is-info">Submit</a>
+                            </div>
+                            </div>
+                            
+                        </nav>
+                        </div>
+                    </article>
+            </div>  -->
+            <br>
+            <br>
+
+                <div class="container">
+                    <!--MAIN POST-->
+                    <article class="message is-dark">
+                      <div class="level message-header">
+                        <div class="columns">
+                          <div class="column is-3">
+                            <figure class="level-left">
+                              <p class="image is-32x32">
+                                <img class="is-rounded" src="http://localhost:9669/{{thread.post.user.profilePic}}">
+                              </p>
+                            </figure>
+                          </div>
+                        
+                          <div class="column is-4">
+                              <p>
+                                <strong>{{thread.post.user.username}}</strong> 
+                              </p>
+                          </div>
+                          <div class="column is-2 is-offset-8">
+                            <small>{{thread.post.creation_date}}</small>
+                          </div>
+                          <br>
+                        </div>
+                      </div>
+                      <div class="message-body">
+                        <p class="title">{{thread.post.title}}</p>
+                        <p>{{thread.post.content}}</p>      
+                      </div>
+                                <hr>
+                      <div class="columns">
+                        
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="column is-2">
+                                    
+                                    <button (click)="incLikes(i)" class="button is-small">
+                                    <span class="icon is-medium"><i class="fas fa-arrow-up" ></i></span>
+                                    </button>  
+                                </div>
+                                <div class="column is-6 is-offset-2">
+                                    <p> {{thread.post.likes}} Upvotes </p>
+                                </div>
+                                <div class="column is-2 is-offset-2">
+                                    <button class="button is-small">
+                                        <span class="icon is-small"><i class="fas fa-comment"></i> </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
+                      </div>
+                              
+                                
+                            
+                      
+                    </article>
+
+                    
+
+                    <!--COMMENT BOX-->
+
+                    <article *ngIf="isLoggedIn()" class="media">
+                        <div class="media-content">
+                          <div class="field">
+                            <p class="control">
+                              <textarea [(ngModel)]="comment" name="comment" class="textarea" placeholder="Add a comment..."></textarea>
+                            </p>
+                          </div>
+                          <div class="field">
+                            <p class="control">
+                              <button (click)="postComment()" class="button">Post comment</button>
+                            </p>
+                          </div>
+                        </div>
+                    </article>
+
+                    <br><br>
+
+                    <!--List Of COMMENTS-->
+                    <!--Inplement Later-->
+                    <!-- <article class="message is-small">
+                      <div class="message-header">
+                        <p>Small message</p>
+                        <button class="delete is-small" aria-label="delete"></button>
+                      </div>
+                      <div class="message-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla.Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus.
+                      </div>
+                    </article> -->
+                  <div class="columns">
+                    <div class="column is-11 is-offset-1">
+                      <div *ngFor="let c of thread.comment; let i = index">
+                        <br>
+                          <article class="media is-dark">
+                            
+                            <figure class="media-left">
+                              <p class="image is-32x32">
+                                <img class="is-rounded" src="http://localhost:9669/{{c.user.profilePic}}">
+                              </p>
+                            </figure>
+                            <div class="media-content">
+                              <div class="message is-dark">
+                                <div class="message-body">
+                                  <div class="content">
+                                    <p>
+                                      <strong>{{c.user.username}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<small>{{c.creation_date}}</small>
+                                    </p>
+                                    <hr>
+                                    <p> 
+                                      {{c.content}}
+                                      <br>
+                                    </p> 
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                          
+                      </div>
+                    </div>
+                </div>
+                    
+                
+              </div>
+            
+            
+                    
+        </section>
+    </div>
+</div>

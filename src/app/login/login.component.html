@@ -1,0 +1,66 @@
+
+
+    
+
+
+<!-- <div class="container">
+
+<form (ngSubmit)="validateUser()" role="form">
+    <legend>Form title</legend>
+
+    <div class="form-group">
+        <label for="email">label</label>
+        <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" placeholder="email">
+    </div>
+    <div class="form-group">
+        <label for="pwd">label</label>
+        <input [(ngModel)]="password" name="email" type="password" class="form-control" id="pwd" placeholder="Input field">
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div> -->
+
+<section class="hero is-dark is-bold is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="" class="box">
+              <div class="field">
+                <label for="em" class="label">Email</label>
+                <div class="control has-icons-left">
+                  <input [(ngModel)]="email" name="email" id="em" type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="pwd" class="label">Password</label>
+                <div class="control has-icons-left">
+                  <input [(ngModel)]="password" id="pwd" name="password" type="password" placeholder="*******" class="input" required>
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="checkbox">
+                  <input type="checkbox">
+                 Remember me
+                </label>
+              </div>
+              <div class="field">
+                <button (click)="validateUser()" class="button is-dark">
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

@@ -1,0 +1,65 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+
+<!-- <section>
+    <nav class="level">
+     <div class="container">
+         <div class="column is-4">
+
+         </div>
+     </div>   
+     <div class="container">
+         <h1 class="title is-italic">   
+                 INTERESTS YOU CAN FOLLOW
+         </h1>     
+     </div>
+ </nav>
+</section>     -->
+<hr>
+<section class="section">
+         
+        <div class="container">
+
+                <div class="columns is-multiline">
+                        <div *ngFor="let f of forums; let i = index" class="level centered">
+                                
+                                        <div class ="column is-one-third">
+                                                
+                                                <article class="media">
+                                                        <div class="media-content">
+                                                                <div class="content">
+                                                                        <div class="card">
+                                                                                <div class="card-content has-content-centered">
+                                                                                        <figure class="image is-128x128 is-">
+                                                                                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                                                                                        </figure>
+                                                                                        <h1 class="title">
+                                                                                                {{f.name}}
+                                                                                        </h1>
+                                                                                        <br>
+                                                                                        <p class="subtitle is-size-5">
+                                                                                                {{f.description}}
+                                                                                        </p>
+                                                                                </div>
+                                                                                <footer class="card-footer">
+                                                                                <p class="card-footer-item">
+                                                                                        <span>
+                                                                                                <button (click)="followForum(i)" class="button is-link is-outlined">Follow</button>
+                                                                                        </span>
+                                                                                </p>
+                                                                                <p class="card-footer-item">
+                                                                                        <span>
+                                                                                                <button routerLink="/forum/{{f._id}}" routerLinkActive="router-link-active"  class="button is-link is-outlined">View Posts</button>
+                                                                                        </span>
+                                                                                </p>
+                                                                                </footer>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </article>
+                                        </div>
+                                
+                        </div>
+                </div>
+        </div> 
+        
+</section>

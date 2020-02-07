@@ -1,0 +1,26 @@
+<div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        Update Profile Picture
+      </p>
+      
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <div>
+            <input (change)="onSelectThumbnail($event)" type="file" name="profilepic" id="file">
+            <label for="file">Choose File</label>
+            <button type="button" (click)="onAdd()" >
+                Submit
+            </button>
+        </div>
+        
+      </div>
+    </div>
+    <footer class="card-footer">
+      
+    </footer>
+  </div>
+
+
+

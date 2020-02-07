@@ -1,0 +1,53 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+
+<section>
+    <nav class="level">
+            <div class="container">
+                <div class="column is-4">
+
+                </div>
+            </div>   
+            <div class="container">
+                <h1 class="title is-italic">   
+                        LIST OF ALL CUSTOMERS
+                </h1>     
+            </div>
+        </nav>
+</section>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<section>
+   <nav class="level">
+        <div class="container">
+                <div class="column is-4">
+
+                </div>
+        </div>  
+   <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><abbr title="Id">ID</abbr></th> 
+                    <th><abbr title="Name">NAME</abbr></th> 
+                    <th><abbr title="Email">EMAIL</abbr></th>
+                    <th><abbr title="Name">USERNAME</abbr></th>
+                    <th><abbr title=" Block User">BLOCK USER</abbr></th> 
+                    <th><abbr title=" Delete User">DELETE USER</abbr></th> 
+                </tr>   
+            </thead>   
+                                
+            <tbody>
+                <tr *ngFor="let i of userList; let i=index">
+                    <th>{{i+1}}</th>
+                    <th>{{i.name}}</th>
+                    <th>{{i.email}}</th>
+                    <th>{{i.username}}</th>
+                    <th><a (click)="blockUser(i)" id="block_{{i}}" class="button is-medium is-link is-rounded is-focused">BLOCK</a></th>
+                    <th><a (click)="deleteUser(i)" id="delete_{{i}}" class="button is-medium is-danger is-rounded is-focused">DELETE</a></th>
+                </tr>
+            </tbody>  
+        </table>
+   </div>
+</nav>
+</section>

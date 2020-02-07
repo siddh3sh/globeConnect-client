@@ -1,0 +1,134 @@
+<!-- <div class="container">
+    
+    <div class="panel panel-default" *ngFor="let p of post;let i = index">
+        
+            <div class="panel-heading" style="height: 50px;">
+                <div class="col-md-1">Profile_pic</div>
+                <div class="col-md-9"> {{p.user.name}} </div>
+                <div class="col-md-2">{{p.creation_date}}</div>
+            </div>
+        <div class="panel-body">{{p.content}}</div>
+        <div class="panel-footer">
+        <a class="btn btn-large btn-block btn-default" (click)="incLikes(i)" role="button">LIKE</a>
+         {{p.likes}}</div>
+         
+         <div *ngFor="let c of post[i].comments">
+         <textarea disabled name="" id="input" class="form-control" rows="3" required="required">{{c.content}}</textarea>
+         {{c.user}}
+        </div>
+        
+    </div>
+
+</div> -->
+
+<!--POST BOX-->
+<div *ngIf="isLoggedIn()" class="container">
+              
+    <article class="media">
+        
+        <div class="media-content">
+            
+            <div class="field">
+                
+                <div id="forum" class="select">
+                    <select style="color: black;" [(ngModel)]="forum" name="forum">
+                        <option selected disabled>Select Forum</option>
+                        <option *ngFor="let f of user.forums; let fi = index">
+                            {{f.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <textarea [(ngModel)]="title" id="title" name="title" class="textarea title" rows="1" placeholder="Title" required></textarea>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                <textarea [(ngModel)]="post" name="post" class="textarea" placeholder="Start A Discussion" required></textarea>
+                </p>
+            </div>
+            <nav class="level">
+            <div class="level-left">
+                <div class="level-item">
+                <a (click)="addPost()" class="button is-info">Submit</a>
+                </div>
+            </div>
+            </nav>
+        </div>
+    </article>
+    
+</div>
+<br>
+<br>
+
+
+
+<!--FEED-->
+
+        
+            <div *ngFor="let p of posts;let i = index">
+                <br><br>
+                <div style="border-style: outset;" class="has-background-white">
+                    <article class="media notification is-info">
+                        <figure class="media-left">
+                            <p class="image is-32x32">
+                                <img class="is-rounded" src="http://localhost:9669/{{p.user.profilePic}}">
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            
+                            <div class="content">
+                                <p>
+                                    <strong>{{p.user.username}}</strong>
+                                      <br>      
+                                    <small>{{p.creation_date}}</small>      
+                                </p>     
+                                       
+                            </div>            
+                           
+                        </div>
+                        <div *ngIf="isAdmin()" class="media-right">
+                            
+                                <button (click)="deletePost(i)" class="delete"></button>
+                            
+                        </div> 
+                        
+                    </article>
+                    <div class="section" style="padding-top: 0; padding-bottom: 20px;">
+                        
+                            <h3 class="title is-size-5">{{p.title}}</h3>
+
+                            <h4 class="subtitle is-size-7">{{p.content}}</h4>
+                        
+                    </div>
+                    
+                    
+
+                    <div class="columns">
+                        
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <div class="column is-2">
+                                    
+                                    <button (click)="incLikes(i)" class="button">
+                                    <span class="icon is-medium"><i class="fas fa-arrow-up" ></i></span>
+                                    </button>  
+                                </div>
+                                <div class="column is-6 is-offset-2">
+                                <p> {{p.likes}} Upvotes </p>
+                                </div>
+                                <div class="column is-2 is-offset-2">
+                                    <button routerLink="/d/{{p._id}}" class="button">
+                                        <span class="icon is-small"><i class="fas fa-comment"></i> </span>
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </nav>
+                        
+                    </div>
+                </div>
+            </div>
+        

@@ -1,0 +1,79 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+
+<div class="columns">
+    <div class="column is-6 is-offset-3">
+        <div *ngIf="searchResult.length != 0; else NoResult">
+            <div *ngFor="let p of searchResult;let i = index">
+                <br><br>
+                <div style="border-style: outset;">
+                    <div class="box">
+                        <div class="media-content">
+                        <a style="color: black;" routerLink="/d/{{p._id}}" >
+                                <div class="content">
+                                    <div class="columns">
+                                        <div class="column is-2">
+                                            <figure class="media-left">
+                                                <p class="image is-32x32">
+                                                    <img class="is-rounded" src="http://localhost:9669/{{p.user.profilePic}}">
+                                                </p>
+                                            </figure>
+                                        </div>
+                                        
+                                            
+                                        <div class="column is-6"><strong>{{p.user.username}}</strong></div> <div class="column is-12"><small>{{p.creation_date}}</small></div>
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <p class="title">{{p.title}}</p>
+                                    </div>
+                                    <div class="column is-11"><p>{{p.content}}
+                                    </p></div>
+                                </div>
+                        </a>
+                                    <hr>
+                                <div class="columns">
+                                    
+                                    <nav class="level is-mobile">
+                                        <div class="level-left">
+                                            <div class="column is-2">
+                                                
+                                                <button (click)="incLikes(i)" class="button">
+                                                <span class="icon is-medium"><i class="fas fa-arrow-up" ></i></span>
+                                                </button>  
+                                            </div>
+                                            <div class="column is-6 is-offset-2">
+                                            <p> {{p.likes}} Upvotes </p>
+                                            </div>
+                                            <div class="column is-2 is-offset-2">
+                                                <button class="button">
+                                                    <span class="icon is-small"><i class="fas fa-comment"></i> </span>
+                                                </button>
+                                            </div>
+                                            <!-- <div *ngIf="isAdmin()" class="column is-2 is-offset-8">
+                                                <button (click)="deletePost(i)" class="delete"></button>
+                                            </div> -->
+                                        </div>
+                                    </nav>
+                                    
+                                </div>
+                            
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #NoResult>
+            <section class="section">
+                <div class="container">
+                    <div class="media center">
+                        <div class="media-content">
+                            <div class="content">
+                                <h3 class="title"> No Results Found</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </ng-template>
+    </div>
+</div>

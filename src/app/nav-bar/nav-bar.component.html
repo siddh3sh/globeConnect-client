@@ -1,0 +1,171 @@
+<div *ngIf="!isLoggedIn();else changeNav">
+  <nav class="navbar">
+      <div class="navbar-brand">
+        <!-- <a class="navbar-item" href="https://bulma.io">
+          <img src="" width="112" height="28">
+        </a> -->
+        <a class="navbar-item" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+          <!-- <img src="" width="112" height="28"> -->
+          
+            
+          <p> <img  src="../../assets/logo.png">   <img src="../../assets/globeconnectTrans.png">
+            
+        
+        </a>
+        <div (click)="toggleBurger()" class="navbar-burger burger" id="burger" data-target="navbarExampleTransparentExample">
+          
+          <span></span>
+          <span></span>
+          <span></span>
+        
+      </div>
+      </div>
+    
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+              <a class="navbar-item" href="https://bulma.io/">
+            
+              </a>
+              
+          </div>
+          <div class="navbar-item">
+              <input [(ngModel)]="searchQ" name="searchQ" class="navbar-item input is-rounded" type="text" placeholder="search" required>
+              <span>
+                <button (click)="searchPost()" class="">
+                  <span class="icon is-small"><i class="fa fa-search" aria-hidden="true"></i></span>
+                </button>
+              </span>
+          </div>
+        
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                  Profile
+              </a>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item" [routerLink]="['/login']" routerLinkActive="router-link-active" >
+                    Profile
+                    </a>
+                    <a class="navbar-item" [routerLink]="['/']" routerLinkActive="router-link-active" >
+                      Home
+                    </a>
+                    <a class="navbar-item" [routerLink]="['/interests']" routerLinkActive="router-link-active" >
+                      Interest
+                    </a>
+                    <a class="navbar-item" [routerLink]="['/']" routerLinkActive="router-link-active" >
+                      
+                    </a>
+                    <a class="navbar-item" [routerLink]="['/privacy-policy']" routerLinkActive="router-link-active" >
+                      Privacy Policy
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item" [routerLink]="['/about-us']" routerLinkActive="router-link-active" >
+                      About Us
+                    </a>
+                    
+                </div>
+              </div>
+            <div class="field is-grouped">
+              <p class="control">
+                <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="bd-tw-button button">
+                  
+                  <span>
+                    Login In
+                  </span>
+                </a>
+              </p>
+              <p class="control">
+                <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active"  class="button is-primary">
+                  
+                  <span>Sign Up</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </nav>
+</div>
+<ng-template #changeNav>
+  <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+          <!-- <img src="" width="112" height="28"> -->
+          
+            
+          <p> <img  src="../../assets/logo.png">   <img src="../../assets/globeconnectTrans.png">
+            
+        
+        </a>
+        <!--Hamburger-->
+          <!-- <p class="is-size-2">GLOBE CONNECT <br><p class="is-size-6">  global discussion forum</p></p> -->
+        <div (click)="toggleBurger()" class="navbar-burger burger" id="burger" data-target="navbarExampleTransparentExample">
+          
+            <span></span>
+            <span></span>
+            <span></span>
+          
+        </div>
+      </div>
+    
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" [routerLink]="['/']" routerLinkActive="router-link-active" ></a>
+              
+          </div>
+          <div class="navbar-item">
+            <input [(ngModel)]="searchQ" name="searchQ" class="navbar-item input is-rounded" type="text" placeholder="search" required>
+            <span>
+              <button (click)="searchPost()" class="">
+                <span class="icon is-small"><i class="fa fa-search" aria-hidden="true"></i></span>
+              </button>
+            </span>
+          </div>
+        
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                  Profile
+              </a>
+              <div class="navbar-dropdown is-boxed">
+                  <a class="navbar-item" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
+                  Profile
+                  </a>
+                  <a class="navbar-item" [routerLink]="['/interests']" routerLinkActive="router-link-active" >
+                  Interests
+                  </a>
+                  <a class="navbar-item" [routerLink]="['/']" routerLinkActive="router-link-active" >
+                    Home
+                  </a>
+                  <a class="navbar-item" [routerLink]="['/settings']" routerLinkActive="router-link-active" >
+                  Settings
+                  </a>
+                  <a class="navbar-item" [routerLink]="['/about-us']" routerLinkActive="router-link-active" >
+                  About Us
+                  </a>
+                  <a class="navbar-item" [routerLink]="['/privacy-policy']" routerLinkActive="router-link-active" >
+                  Privacy Policy
+                  </a>
+                  <hr class="navbar-divider">
+                  
+              </div>
+              </div>
+            <div class="field is-grouped">
+              <p class="control">
+                <a (click)="logOut()" class="bd-tw-button button">
+                  
+                  <span>
+                    Logout
+                  </span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </nav>
+</ng-template>
