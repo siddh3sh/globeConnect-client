@@ -8,7 +8,7 @@ export class ForumService {
 
   constructor(private http: HttpClient) { }
 
-  url = "http://localhost:9669"
+  url = "http://13.126.22.154:9669"
 
   getAllForums()
   {

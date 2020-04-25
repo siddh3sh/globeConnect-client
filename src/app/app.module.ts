@@ -32,6 +32,7 @@ import { UserTableComponent } from './user-table/user-table.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AddForumComponent } from './add-forum/add-forum.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AddForumComponent } from './add-forum/add-forum.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    
   ],
   providers: [
     LoginService,

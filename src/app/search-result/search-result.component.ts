@@ -1,3 +1,4 @@
+import { PostService } from './../post.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ export class SearchResultComponent implements OnInit {
 
   searchResult: any[]
 
-  constructor() {
+  constructor(private service: PostService) {
     this.displaySearchResult()
    }
 
@@ -20,6 +21,15 @@ export class SearchResultComponent implements OnInit {
   displaySearchResult()
   {
     this.searchResult = JSON.parse(sessionStorage.getItem('search-result'));
+  }
+
+  incLikes(i:any)
+  {
+      this.service.incrLikes(this.searchResult[i]._id).subscribe(res => {
+      //console.log(res)
+      const response = res as any;
+      this.searchResult[i].likes = response.likes
+    })
   }
 
 }

@@ -74,7 +74,7 @@
                     <article class="media notification is-info">
                         <figure class="media-left">
                             <p class="image is-32x32">
-                                <img class="is-rounded" src="http://localhost:9669/{{p.user.profilePic}}">
+                                <img class="is-rounded" src="http://13.126.22.154:9669/{{p.user.profilePic}}">
                             </p>
                         </figure>
                         <div class="media-content">
@@ -83,7 +83,7 @@
                                 <p>
                                     <strong>{{p.user.username}}</strong>
                                       <br>      
-                                    <small>{{p.creation_date}}</small>      
+                                    <small>{{p.creation_date | date:'short'}}</small>      
                                 </p>     
                                        
                             </div>            

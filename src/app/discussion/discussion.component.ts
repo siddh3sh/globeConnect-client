@@ -57,6 +57,15 @@ export class DiscussionComponent implements OnInit {
     
   }
 
+  incLikes(i:any)
+  {
+      this.service.incrLikes(this.thread.post._id).subscribe(res => {
+      //console.log(res)
+      const response = res as any;
+      this.thread.post.likes = response.likes
+    })
+  }
+
   isLoggedIn()
   {
     return this.loginService.isLoggedIn()

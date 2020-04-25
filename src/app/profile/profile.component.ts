@@ -36,8 +36,23 @@ export class ProfileComponent implements OnInit {
 
   removeModal()
   {
-    var ele = document.getElementById('mod');
-    ele.classList.remove('is-active');
-    ele.classList.add('hidden');
+    const i = true;
+    if (i) {
+      var ele = document.getElementById('mod');
+      ele.classList.remove('is-active');
+      ele.classList.add('hidden');
+    }
+    location.reload()
+    
+  }
+
+  
+  incLikes(i:any)
+  {
+      this.service.incrLikes(this.user.posts[i]._id).subscribe(res => {
+      //console.log(res)
+      const response = res as any;
+      this.user.posts[i].likes = response.likes
+    })
   }
 }

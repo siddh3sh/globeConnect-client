@@ -14,7 +14,13 @@ export class HomeComponent implements OnInit {
   title: String
   post: String
 
-  constructor(private service: LoginService, private router: Router, private postService: PostService) { }
+  
+
+  
+
+  constructor(private service: LoginService, private router: Router, private postService: PostService) {
+    
+   }
 
   ngOnInit() {
   }

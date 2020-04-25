@@ -1,3 +1,4 @@
+import { PostService } from './../post.service';
 import { ForumService } from './../forum.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +12,7 @@ export class ForumComponent implements OnInit {
   pageBody: any
 
   constructor(private service: ForumService, private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router, private postService: PostService) {
     
     this.route.paramMap.subscribe(async result => {
       let forumId = result.get('id');
@@ -31,9 +32,14 @@ export class ForumComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  
-  
-  
 
+  incLikes(i:any)
+  {
+      this.postService.incrLikes(this.pageBody.forumPosts[i]._id).subscribe(res => {
+      //console.log(res)
+      const response = res as any;
+      this.pageBody.forumPosts[i].likes = response.likes
+    })
+  }
+  
 }

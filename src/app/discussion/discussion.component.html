@@ -3,42 +3,6 @@
 <hr>
 <div class="columns">
     <div class="column is-one-quarter">
-        <nav class="panel">
-            <p class="panel-heading has-background-white">
-              Forums
-            </p>
-            
-            <a class="panel-block">
-              <span class="panel-icon has-background-white">
-                <i class="fas fa-book" aria-hidden="true"></i>
-              </span>
-              SPORTS
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fas fa-book" aria-hidden="true"></i>
-              </span>
-              PHILOSOPHY
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fas fa-book" aria-hidden="true"></i>
-              </span>
-              PROGRAMMING
-            </a>
-            <a class="panel-block">
-                <span class="panel-icon">
-                  <i class="fas fa-book" aria-hidden="true"></i>
-                </span>
-                GAMING  
-            </a>
-            <a class="panel-block">
-                <span class="panel-icon">
-                  <i class="fas fa-book" aria-hidden="true"></i>
-                </span>
-                POLITICS
-            </a>
-          </nav>
     </div>
     <div class="column is-half">
         <section *ngIf="thread">
@@ -78,7 +42,7 @@
                           <div class="column is-3">
                             <figure class="level-left">
                               <p class="image is-32x32">
-                                <img class="is-rounded" src="http://localhost:9669/{{thread.post.user.profilePic}}">
+                                <img class="is-rounded" src="http://13.126.22.154:9669/{{thread.post.user.profilePic}}">
                               </p>
                             </figure>
                           </div>
@@ -105,7 +69,7 @@
                             <div class="level-left">
                                 <div class="column is-2">
                                     
-                                    <button (click)="incLikes(i)" class="button is-small">
+                                    <button (click)="incLikes(thread.post._id)" class="button is-small">
                                     <span class="icon is-medium"><i class="fas fa-arrow-up" ></i></span>
                                     </button>  
                                 </div>
@@ -166,7 +130,7 @@
                             
                             <figure class="media-left">
                               <p class="image is-32x32">
-                                <img class="is-rounded" src="http://localhost:9669/{{c.user.profilePic}}">
+                                <img class="is-rounded" src="http://13.126.22.154:9669/{{c.user.profilePic}}">
                               </p>
                             </figure>
                             <div class="media-content">

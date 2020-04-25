@@ -8,7 +8,7 @@ import { url } from 'inspector';
 export class PostService {
   public discussionBody: any
 
-  url='http://localhost:9669/content'
+  url='http://13.126.22.154:9669/content'
   
   
 

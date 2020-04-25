@@ -6,9 +6,9 @@ import * as jwt_decode from 'jwt-decode';
   providedIn: 'root'
 })
 export class AdminService {
-  url = "http://localhost:9669/admin"
+  url = "http://13.126.22.154:9669/admin"
 
-  urlP = "http://localhost:9669/content"
+  urlP = "http://13.126.22.154:9669/content"
   constructor(private http: HttpClient) { }
 
   allUsers()

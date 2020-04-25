@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  url = 'http://localhost:9669/auth'
+  url = 'http://13.126.22.154:9669/auth'
 
-  urlU = 'http://localhost:9669/user'
+  urlU = 'http://13.126.22.154:9669/user'
 
   constructor(private http: HttpClient) { }
 
