@@ -53,7 +53,7 @@
                               </p>
                           </div>
                           <div class="column is-2 is-offset-8">
-                            <small>{{thread.post.creation_date}}</small>
+                            <small>{{thread.post.creation_date | date:'short'}}</small>
                           </div>
                           <br>
                         </div>
@@ -138,7 +138,7 @@
                                 <div class="message-body">
                                   <div class="content">
                                     <p>
-                                      <strong>{{c.user.username}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<small>{{c.creation_date}}</small>
+                                      <strong>{{c.user.username}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<small>{{c.creation_date | date:'short'}}</small>
                                     </p>
                                     <hr>
                                     <p> 
