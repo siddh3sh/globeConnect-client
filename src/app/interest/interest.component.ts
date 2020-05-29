@@ -39,11 +39,19 @@ export class InterestComponent implements OnInit {
 
         this.forums.forEach((forum)=>{
           //console.log(forum.display_pic);
-          let img: String =  forum.display_pic.content;
+          let img: String =  this.arrayBufferToBase64(forum.display_pic.content.data);
           let imgType = forum.display_pic.contentType;
           forum.imageURL = this.domSanitizer.bypassSecurityTrustResourceUrl(`data:${imgType};base64,${img}`);
+          
         })
 
     })
-  } 
+  }
+  
+  arrayBufferToBase64(buffer) {
+    var binary = '';
+    var bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+    return window.btoa(binary);
+  }
 }
