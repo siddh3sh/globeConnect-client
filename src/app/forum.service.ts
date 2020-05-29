@@ -8,7 +8,7 @@ export class ForumService {
 
   constructor(private http: HttpClient) { }
 
-  url = "http://13.126.22.154:9669"
+  url = "https://globe-connect.herokuapp.com"
 
   getAllForums()
   {

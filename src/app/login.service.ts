@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  url = 'http://13.126.22.154:9669/auth'
+  url = 'https://globe-connect.herokuapp.com/auth'
 
-  urlU = 'http://13.126.22.154:9669/user'
+  urlU = 'https://globe-connect.herokuapp.com/user'
 
   constructor(private http: HttpClient) { }
 

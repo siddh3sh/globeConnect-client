@@ -6,9 +6,9 @@ import * as jwt_decode from 'jwt-decode';
   providedIn: 'root'
 })
 export class AdminService {
-  url = "http://13.126.22.154:9669/admin"
+  url = "https://globe-connect.herokuapp.com/admin"
 
-  urlP = "http://13.126.22.154:9669/content"
+  urlP = "https://globe-connect.herokuapp.com/content"
   constructor(private http: HttpClient) { }
 
   allUsers()

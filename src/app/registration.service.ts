@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegistrationService {
 
-  url = 'http://13.126.22.154:9669/user'
+  url = 'https://globe-connect.herokuapp.com/user'
 
   constructor(private http: HttpClient) { }
 

@@ -6,14 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SettingsService {
 
-  url = 'http://13.126.22.154:9669/user'
+  url = 'https://globe-connect.herokuapp.com/user'
 
   constructor(private http: HttpClient) { }
 
   addProfilePic(profilepic: any)
   {
     const formData = new FormData();
-    console.log('id: ' + localStorage.getItem('user-id') + ' profilepic: ' + profilepic)
+    //console.log('id: ' + localStorage.getItem('user-id') + ' profilepic: ' + profilepic)
     formData.append(`id`, localStorage.getItem('user-id'))
     formData.append('profilepic', profilepic)
 
